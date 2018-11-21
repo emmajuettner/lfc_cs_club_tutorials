@@ -1,0 +1,67 @@
+Spooky Stories Interactive Fiction Tutorial 10-26-2018
+No coding experience required!
+#######################################################
+Introduction:
+
+Hi all! Today we'll be doing an interactive fiction workshop and writing spooky stories for Halloween. If you're not familiar with interactive fiction, it's a form of storytelling that uses text, links, and sometimes variables to let you participate in the story. You can think of it like a choose-your-own-adventure story.
+
+There's lots of different ways to create interactive fiction, but this tutorial will focus on a tool called Twine. Twine is built to be an easy way to write interactive fiction even if you don't know any programming languages, and it doesn't require you to do any major coding. However, if you do know how to code (especially if you're familiar with JavaScript, HTML, & CSS), you can use those skills to further customize your story.
+#######################################################
+Software Needed:
+Twine (download at twinery.org)
+#######################################################
+Tutorial:
+
+***NOTE*** This tutorial uses the Harlowe 2 syntax for Twine. This is the default, so you don't need to worry about it right now-- just know that if you make any changes to your Story Format settings, your syntax may look different from what I've used here.
+
+Also, I've created a basic game (the html file in this folder) that you can look at to see Twine in action, or to use as a template for creating your own story. It's a very short story about Bigfoot. You can open it with Twine by using the "Import from File" button on the Twine home screen.
+
+STEP ONE: Creating Your Story
+When you first open Twine, it should create a story for you with one default story passage. This will be the first thing people see when they play your game. Try editing it! If you delete all the text in a passage, the editor will show you some ways you can customize your text, for example:
+
+''text'' ------- makes the text bold.
+//text// ------- puts the text in italics.
+^^text^^ ------- makes the text a superscript.
+
+HTML tags like <p></p> are also supported, as well as CSS, if you would like more control over the appearance of your text, but to get started you don't need to worry about that.
+
+STEP TWO: Linking Passages
+Once you've finished typing what you want your first passage to say, you're ready to link it to the next passage. To do this, go to the bottom of your starting passage and put the name of your new passage in double brackets, like this:
+
+	[[new passage]]
+
+This will display a link with the text "new passage" underneath your opening text, and creates a passage called "new passage" that will be displayed when the player clicks on the link. If you want the link to say something different than the actual name of the passage, you can use this syntax:
+
+	[[go left|dead end]]
+
+In this case, the player will see the option "go left", which will lead them to a passage called "dead end".
+
+You can link to multiple passages by including multiple links; this is where branching story structure can come into play. Players can choose one option instead of others to alter how their story plays out.
+
+***NOTE*** If you want to see what the player will see at any point, select the play button and Twine will open up a window for you to play your game!
+
+STEP THREE: Using Variables
+If you want to make your story a bit more complex, you can use variables to store information. Let's imagine the player has the option to find a key at a particular point in the story, and use it to open a door at a different point. You would only want the door to open if the player had already found the key. So you could include this text at the beginning of your story to initialize the variable (this text won't show up to the player):
+
+	(set: $has_key to false)
+
+In this statement, $has_key is a variable that tells us if the player has the key or not. In Twine, variables always start with the symbol $. So, the above statement will set the value of $has_key to false, since the player doesn't have the key at the start of your story.
+
+Later, in the passage where your player finds the key, you can include this text:
+
+	You found an old, rusty key. (set: $has_key to true)
+
+So now we will remember that the player has the key. When the player finds the door, to check whether they can unlock it or not, we can say something like this:
+
+	You see an ominous wooden door.
+	
+	(if: $has_key is true)[Your key seems to be a perfect fit in the lock!]
+	(else:)[It is firmly locked.]
+
+Here, we see our first if statement. We check if the player has the key, and if they do, we display the text "Your key seems to be a perfect fit in the lock!" If not, we tell them the door is locked. The general syntax for if conditions in Twine looks like this, where "expression" is any condition like "$has_key is true" that can be evaluated as true or false:
+
+	(if: expression) [Text] (else if: expression) [Text] (else:) [Text]
+
+***NOTE*** The (else:) and (else if:) blocks are optional; you only need to include them if you want something to happen when the (if:) condition isn't true. You can also put links or variable assignments instead of plain text; this means that the link would display or the variable would be set only when the if condition is true.
+#######################################################
+Congratulations! You've learned the basic building blocks of Twine! There's lots of other elements you can incorporate for more complex projects, but this is all you need to complete a basic text-based game. If you're feeling adventurous, you can check out the Twine wiki and forums to learn about some of the more advanced features, or try incorporating HTML and Javascript to your project. Have fun!

@@ -1,0 +1,49 @@
+<tw-storydata name="halloween_story" startnode="1" creator="Twine" creator-version="2.2.1" ifid="A56F3C92-0FEF-403F-943B-F2D7FE0627F0" zoom="1" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="388,57" size="100,100">You wake up in a dark forest.
+
+[[look around]]
+(set: $has_shoe to false)</tw-passagedata><tw-passagedata pid="2" name="look around" tags="" position="496,193" size="100,100">You see trees. Lots of trees. //Spooky// trees.
+
+You shiver. It&#39;s cold out, you should probably try to find shelter.
+
+[[go east]]
+[[go south]]
+[[go west]]</tw-passagedata><tw-passagedata pid="3" name="go east" tags="" position="677,189" size="100,100">You are standing on the shores of a cold, swiftly-moving river.
+
+[[turn back|look around]]</tw-passagedata><tw-passagedata pid="4" name="go south" tags="" position="493,361" size="100,100">You hear a rustling in the bushes to the south.
+
+[[follow it!]]
+[[run away!|go east]]</tw-passagedata><tw-passagedata pid="5" name="go west" tags="" position="297,201" size="100,100">You find an old shoe lying on the ground! It&#39;s very large.
+(set: $has_shoe to true)
+
+The woods are more dense here; you&#39;ll have to turn back.
+
+[[turn back|look around]]</tw-passagedata><tw-passagedata pid="6" name="follow it!" tags="" position="418,511" size="100,100">You charge into the bushes after the sound you heard. There&#39;s a large, hairy creature trampling through the undergrowth. You seem to have startled him.
+
+[[tackle him!]]
+[[say &quot;excuse me!&quot;]]</tw-passagedata><tw-passagedata pid="7" name="tackle him!" tags="" position="343,661" size="100,100">You tackle the creature. Upon closer inspection, he appears to be Bigfoot!
+
+&quot;Hey, I&#39;m walking here!&quot; he says. &quot;What the heck!&quot;
+
+(if: $has_shoe is true)[ [[offer him the large shoe]]]
+[[apologize]]</tw-passagedata><tw-passagedata pid="8" name="say &quot;excuse me!&quot;" tags="" position="189,663" size="100,100">He turns. It&#39;s Bigfoot.
+
+&quot;Oh, hi. What&#39;s up? Hey, have you seen my shoe? It&#39;s big.&quot;
+
+(if: $has_shoe is true)[ [[offer him the large shoe]]]
+(else:)[ [[&quot;No, sorry.&quot;]]]</tw-passagedata><tw-passagedata pid="9" name="offer him the large shoe" tags="" position="268,811" size="100,100">&quot;Hey, thanks!&quot; he says. &quot;I was wondering where that was.&quot;
+
+He puts on the shoe, which you can see matches the other one he was wearing, and saunters away into the distance.
+
+&#39;&#39;You have reached the GOOD ENDING. Congratulations.&#39;&#39;</tw-passagedata><tw-passagedata pid="10" name="apologize" tags="" position="418,811" size="100,100">&quot;Dang right you&#39;re sorry,&quot; Bigfoot says. &quot;How rude people are these days...&quot;
+
+He stomps off without so much as a goodbye.
+
+&#39;&#39;You have reached the BAD ENDING.&#39;&#39;</tw-passagedata><tw-passagedata pid="11" name="&quot;No, sorry.&quot;" tags="" position="190,433" size="100,100">&quot;No worries. It&#39;s gotta be around here somewhere.&quot;
+
+Bigfoot wanders off and starts rummaging in another patch of bushes.
+
+[[keep walking|go west]]</tw-passagedata></tw-storydata>
